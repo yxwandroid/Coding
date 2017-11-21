@@ -6,18 +6,62 @@
  *  @author: wilson
  *  @disc:  程序的页面集合
  */
-import {StackNavigator} from 'react-navigation';
+import {StackNavigator,TabNavigator} from 'react-navigation';
 import VideoDetail from "./src/detail/VideoDetail";
 import BookDetail from "./src/detail/BookDetail";
-import HomeScreem from "./src/HomeScreem";
+import VideoScreem from "./src/home/VideoScreem";
+import BookScreen from "./src/home/BookScreen";
 
+const MainScreenNavigator = TabNavigator({
+
+        BookScreen: {
+            screen: BookScreen,
+            navigationOptions: {
+                tabBarLabel: '图书',
+            },
+        },
+        VideoScreem: {
+            screen: VideoScreem,
+            navigationOptions: {
+                tabBarLabel: '电影',
+            },
+        },
+    },
+    {
+        lazy: true,
+        tabBarPosition: 'bottom',
+        tabBarOptions: {
+            activeTintColor: '#3e9ce9',
+            inactiveTintColor: '#999999',
+            showIcon: true,
+            style: {
+                paddingBottom:20,
+                backgroundColor: '#fff'
+            },
+            indicatorStyle: {
+                opacity: 0
+            },
+            tabStyle: {
+                padding: 0
+            }
+        }
+    }
+);
 export const App = StackNavigator({
+
     HomeScreem: {
-        screen: HomeScreem,
+        screen: MainScreenNavigator,
         navigationOptions: {
             headerTitle: '首页',
         },
     },
+
+    // BookScreen: {
+    //     screen: HomeScreem,
+    //     navigationOptions: {
+    //         headerTitle: '首页',
+    //     },
+    // },
     VideoDetail: {
         screen: VideoDetail,
         navigationOptions: {

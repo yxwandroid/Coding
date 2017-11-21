@@ -6,28 +6,32 @@
  *  @author: wilson
  *  @disc:  程序的主界面
  */
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ScrollableTabView, {ScrollableTabBar,} from 'react-native-scrollable-tab-view';
 import BookScreen from "./home/BookScreen";
-import VideoDetail from "./detail/VideoDetail";
 
 export default class HomeScreem extends Component<{}> {
+
+    constructor(props) {
+      super(props);
+      this.state = {};
+
+
+    }
+
+
     render() {
+        let booksNames = ['新书', '热门', '推荐', '小说'];//名称数组
+        let items = [];// tabLabel 数组
+        for (let i = 0; i < 4; i++) {
+            items.push(<BookScreen tabLabel={booksNames[i]}></BookScreen>)
+        }
+
         return (
             <ScrollableTabView
-                initialPage={1}
+                initialPage={0}
                 renderTabBar={() => <ScrollableTabBar/>}>
-                {/*//传递数据到子控件*/}
-                <BookScreen tabLabel='图书'
-                             title='tab1'
-                             image='image'>
-                </BookScreen>
-                <VideoDetail tabLabel='视频'
-                             title='tab2'
-                             image='image2'>
-                </VideoDetail>
-
-
+                {items}
             </ScrollableTabView>
         );
     }
