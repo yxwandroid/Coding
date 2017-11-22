@@ -14,15 +14,25 @@ export default class VideoScreem extends Component<{}> {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            videoNamesMap:new Map([
+                ['正在热映', 'in_theaters'],
+                ['即将上映', 'coming_soon'],
+                ['Top250', 'top250'],
+                ['口碑榜', 'weekly'],
+                ['北美票房榜', 'us_box'],
+                ['新片榜', 'new_movies'],])
+    };
     }
 
 
     render() {
-        let videosNames = ['正在热映', '即将上映', 'Top250', '口碑榜','北美票房榜','新片榜'];//名称数组
-        let items = [];// tabLabel 数组
-        for (let i = 0; i < videosNames.length; i++) {
-            items.push(<VideoScreemItem tabLabel={videosNames[i]}></VideoScreemItem>)
+        let items=[];
+
+        // map 的遍历
+        for (let item of this.state.videoNamesMap.entries()) {
+            console.log(item)
+            items.push( <VideoScreemItem item={item[1]} tabLabel={item[0]}></VideoScreemItem>);
         }
 
         return (

@@ -7,10 +7,10 @@
  *  @disc:  程序的页面集合
  */
 import {StackNavigator,TabNavigator} from 'react-navigation';
-import VideoDetail from "./src/detail/VideoDetail";
-import BookDetail from "./src/detail/BookDetail";
-import VideoScreem from "./src/home/VideoScreem";
-import BookScreen from "./src/home/BookScreen";
+import VideoDetail from "./detail/VideoDetail";
+import BookDetail from "./detail/BookDetail";
+import VideoScreem from "./pages/VideoScreem";
+import BookScreen from "./pages/BookScreen";
 
 const MainScreenNavigator = TabNavigator({
 
@@ -55,13 +55,6 @@ export const App = StackNavigator({
             headerTitle: '首页',
         },
     },
-
-    // BookScreen: {
-    //     screen: HomeScreem,
-    //     navigationOptions: {
-    //         headerTitle: '首页',
-    //     },
-    // },
     VideoDetail: {
         screen: VideoDetail,
         navigationOptions: {

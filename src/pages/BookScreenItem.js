@@ -21,7 +21,7 @@ export default class BookScreen extends Component<{}> {
         const  {tabLabel} =this.props;
         return (
             <View style={styles.container}>
-                <Image style={styles.image} source={require('../images/demo.jpg')}></Image>
+                <Image style={styles.image} source={require('../img/demo.jpg')}></Image>
                 <View  >
                     <Text style={styles.textTitle}>图书标题</Text>
                     <Text style={styles.textTitle}>图书标题</Text>

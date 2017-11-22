@@ -7,5 +7,5 @@
  *  @disc: 程序入口
  */
 import { AppRegistry } from 'react-native';
-import {App} from './App'
+import {App} from './src/App'
 AppRegistry.registerComponent('Coding', () => App);
